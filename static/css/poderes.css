@@ -1,0 +1,43 @@
+
+/* Estilo para cada item de brawler */
+.brawler-item {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    color: white; 
+    transition: transform 0.3s ease; 
+}
+
+.brawler-item:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .brawlers-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+/* Cuadrícula para los poderes estelares */
+.powers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  
+    gap: 15px; 
+    padding: 20px;
+}
+
+/* Espacio entre el navbar y el título */
+.titulo-poderes {
+    margin-top: 15px; 
+    text-align: center; 
+    padding-top: 60px;
+}
+
+.poder-imagen {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}

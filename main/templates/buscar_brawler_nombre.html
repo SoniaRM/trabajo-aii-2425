@@ -1,0 +1,29 @@
+
+{% extends 'master.html' %}
+{% load static %} 
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/brawlers.css' %}"> 
+{% endblock %}
+
+{% block contenido %}
+<p>Resultados</p>
+
+{% if resultados %}
+        <div class="brawlers-grid">
+
+        {% for brawler in resultados %}
+            <a href="/brawlers/brawler/{{ brawler.nombre }}" class="brawler-link">
+                <div class="brawler-item">
+                    <img src="/media/{{ brawler.imagen }}" alt="{{ brawler.nombre }}" class="imagen-brawler">
+                    <p>{{ brawler.nombre }}</p>
+                </div>
+            </a>
+
+        {% endfor %}
+    </div>
+
+{% else %}
+    <p>No se encontraron resultados.</p>
+{% endif %}
+{% endblock %}

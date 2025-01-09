@@ -1,0 +1,142 @@
+/* Navbar styles */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap; 
+}
+
+.navbar-menu > li {
+    position: relative;
+}
+
+.navbar-menu > li > a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-menu > li > a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Dropdown styles */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    min-width: 150px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.dropdown-menu > li > a {
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+body {
+    padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .navbar-menu > li > a {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+    }
+}
+.imagen-simbolo {
+    width: 40px; 
+    height: auto; 
+    margin-bottom: 0px; 
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+
+}
+  
+.search-input {
+padding: 8px;
+font-size: 16px;
+border: 2px solid #ddd;
+border-radius: 5px;
+margin-right: 10px;
+
+}
+
+.search-input:focus {
+border-color: #007bff;
+outline: none;
+}
+
+.search-button {
+padding: 8px 15px;
+font-size: 16px;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+
+}
+
+.search-button:hover {
+background-color: #0056b3;
+}

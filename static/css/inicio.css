@@ -1,0 +1,39 @@
+body {
+    font-family: 'Lilita One', 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    background-color: #111;
+    color: white;
+}
+.imagen-principal {
+    width: 300px; 
+    height: auto; 
+    margin-bottom: 30px; 
+    margin-top: 100px;
+
+}
+p {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+button {
+    font-family: 'Lilita One', 'Roboto', sans-serif;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+button:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+button:focus {
+    outline: none;
+}

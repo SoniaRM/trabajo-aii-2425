@@ -1,0 +1,61 @@
+
+{% extends 'master.html' %}
+{% load static %} 
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/brawlers.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/brawler.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/comparar.css' %}"> 
+    {% endblock %}
+
+{% block titulo %}
+<p class="brawler-title">Comparar Brawlers</p>
+{% endblock %}
+
+{% block contenido %}    
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Comparar</button>
+</form>
+
+{% if brawler_1 and brawler_2 %}
+    <p>Comparación entre {{ brawler_1.nombre }} y {{ brawler_2.nombre }}</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Atributo</th>
+                <th>{{ brawler_1.nombre }}</th>
+                <th>{{ brawler_2.nombre }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Win Rate</td>
+                <td>{{ diferencias.winRate.0 }}</td>
+                <td>{{ diferencias.winRate.1 }}</td>
+            </tr>
+            <tr>
+                <td>Use Rate</td>
+                <td>{{ diferencias.useRate.0 }}</td>
+                <td>{{ diferencias.useRate.1 }}</td>
+            </tr>
+            <tr>
+                <td>Selecciones Registradas</td>
+                <td>{{ diferencias.seleccionesRegistradas.0 }}</td>
+                <td>{{ diferencias.seleccionesRegistradas.1 }}</td>
+            </tr>
+            <tr>
+                <td>Clase</td>
+                <td>{{ diferencias.clase.0 }}</td>
+                <td>{{ diferencias.clase.1 }}</td>
+            </tr>
+            <tr>
+                <td>Rareza</td>
+                <td>{{ diferencias.rareza.0 }}</td>
+                <td>{{ diferencias.rareza.1 }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endif %}
+{% endblock %}

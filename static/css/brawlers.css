@@ -1,0 +1,60 @@
+/* Contenedor de la cuadrícula de brawlers */
+.brawlers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px; 
+    padding: 30px; 
+    height: auto;
+    box-sizing: border-box;
+    margin-top: 20px; 
+}
+
+/* Estilo para cada item de brawler */
+.brawler-item {
+    display: flex;
+    align-items: center;
+    background-color: #333; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left; 
+    color: white; 
+    transition: transform 0.3s ease; 
+}
+
+/* Efecto de hover para que crezca un poco */
+.brawler-item:hover {
+    transform: scale(1.05);
+}
+
+/* Ajustar las imágenes */
+.imagen-brawler {
+    width: 80px; 
+    height: auto; 
+    margin-right: 20px; 
+    border-radius: 8px;
+}
+.imagen-poder {
+    width: 30px; 
+    height: auto; 
+    margin-right: 20px; 
+    border-radius: 8px;
+}
+/* Estilo para los enlaces */
+.brawler-link {
+    text-decoration: none; 
+    color: white; 
+    display: block; 
+}
+
+/* Estilo para el nombre del brawler */
+.brawler-item p {
+    font-size: 20px;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .brawlers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

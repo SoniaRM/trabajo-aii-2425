@@ -1,0 +1,14 @@
+.classes-grid {
+    margin-top: 20px; 
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    gap: 20px; 
+    justify-items: center; 
+}
+
+/* Espacio entre el navbar y el título */
+.titulo-clases {
+    margin-top: 4px;
+    text-align: center; 
+    padding-top: 50px; 
+}

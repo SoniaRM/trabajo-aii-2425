@@ -1,0 +1,48 @@
+/* Estilo para las rarezas */
+.rareza[data-rareza="Common"] {
+    color: #b9eaff; 
+}
+
+.rareza[data-rareza="Rare"] {
+    color: #68fd58; 
+}
+
+.rareza[data-rareza="Super Rare"] {
+    color: #5ab3ff;
+}
+
+.rareza[data-rareza="Epic"] {
+    color:#d850ff;
+}
+
+.rareza[data-rareza="Mythic"] {
+    color: #fe5e72; 
+}
+
+.rareza[data-rareza="Legendary"] {
+    color:#fff11e; 
+}
+
+.imagen-brawler[data-rareza="Common"] {
+    border: 5px solid #b9eaff; 
+}
+
+.imagen-brawler[data-rareza="Rare"] {
+    border: 5px solid #68fd58;
+}
+
+.imagen-brawler[data-rareza="Super Rare"] {
+    border: 5px solid #5ab3ff; 
+}
+
+.imagen-brawler[data-rareza="Epic"] {
+    border: 5px solid #d850ff; 
+}
+
+.imagen-brawler[data-rareza="Mythic"] {
+    border: 5px solid #fe5e72; 
+}
+
+.imagen-brawler[data-rareza="Legendary"] {
+    border: 5px solid #fff11e;
+}

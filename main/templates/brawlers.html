@@ -1,0 +1,29 @@
+{% extends 'master.html' %}
+{% load static %} 
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/brawlers.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/rarezas.css' %}"> 
+{% endblock %}
+
+{% block contenido %}
+	<p>Lista de todos los brawlers</p>
+ 
+    <nav>
+        <ul>            
+            <li><a href="/brawlers">Brawlers</a></li>
+            <li><a href="/clases">Por clase</a></li>
+            <li><a href="/rarezas">Por rareza</a></li>
+        </ul>
+    </nav>
+    <div class="brawlers-grid">
+        {% for dato in datos %}
+            <a href="brawler/{{ dato.nombre }}" class="brawler-link">
+                <div class="brawler-item">
+                    <img src="{{ dato.imagen.url }}" alt="{{ dato.nombre }}" class="imagen-brawler">
+                    <p class="rareza" data-rareza="{{ dato.rareza.nombre }}">{{ dato.nombre }}</p>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

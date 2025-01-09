@@ -1,0 +1,79 @@
+{% extends 'master.html' %}
+{% load static %} 
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/brawlers.css' %}">
+    <link rel="stylesheet" href="{% static 'css/brawler.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/rarezas.css' %}"> 
+{% endblock %}
+
+{% block titulo %}
+<p class="brawler-title">Detalles del Brawler</p>
+{% endblock %}
+
+
+{% block contenido %}
+<div class="brawler-container">
+    <!-- Imagen del Brawler -->
+    <div class="brawler-image">
+        <img src="{{ brawler.imagen.url }}" alt="{{ brawler.nombre }}" class="brawler-image-img">
+    </div>
+
+    <!-- Propiedades del Brawler -->
+    <div class="brawler-properties">
+        <p class="nombre">{{ brawler.nombre }}</p>
+        <p><strong>Clase:</strong> {{ brawler.clase.nombre }}</p>
+        <p><strong>Rareza:</strong> 
+            <span class="rareza" data-rareza="{{ brawler.rareza.nombre }}">{{ brawler.rareza.nombre }}</span>
+        </p>
+        <p><strong>Win Rate:</strong> {{ brawler.winRate }}%</p>
+        <p><strong>Use Rate:</strong> {{ brawler.useRate }}%</p>
+        <p><strong>Selecciones Registradas:</strong> {{ brawler.seleccionesRegistradas }}</p>
+        <p><strong>Descripcion:</strong> {{ brawler.descripcion }}</p>
+
+    </div>
+</div>
+
+<!-- Poderes y Gadgets -->
+<div class="brawler-details-columns">
+    <div class="brawler-container">
+        <div class="brawler-properties">
+            <p><strong>Poderes</strong></p>
+            {% for poder in brawler.poderes.all %}
+            <div class="poder-imagen">
+                <img src="{{ poder.imagen.url }}" alt="{{ poder.nombre }}" class="imagen-poder">
+                <p>{{ poder.nombre }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="brawler-container">
+        <div class="brawler-properties">
+            <p><strong>Gadgets</strong></p>
+            {% for gadget in brawler.gadgets.all %}
+            <div class="poder-imagen">
+                <img src="{{ gadget.imagen.url }}" alt="{{ gadget.nombre }}" class="imagen-poder">
+                <p>{{ gadget.nombre }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+</div>
+<p>Si te gusta este brawler, mira estos similares:</p>
+
+<div class="brawlers-grid">
+    {% for rec in recomendaciones %}
+    <a href="/brawlers/brawler/{{ rec.brawler.nombre }}" class="brawler-link">
+        <div class="brawler-item">
+            <img src="{{ rec.brawler.imagen.url}}" alt="{{ dato.nombre }}" class="imagen-brawler">
+            <div>
+            <p>{{ rec.nombre }}</p>
+            <p>Similitud del: {{ rec.score }}</p>
+            </div>
+        </div>
+    </a>
+
+    {% endfor %}
+</div>
+{% endblock %}

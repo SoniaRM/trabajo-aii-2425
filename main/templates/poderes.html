@@ -1,0 +1,34 @@
+{% extends 'master.html' %}
+{% load static %} 
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/clases.css' %}">
+	<link rel="stylesheet" href="{% static 'css/brawlers.css' %}">
+	<link rel="stylesheet" href="{% static 'css/poderes.css' %}">
+{% endblock %}
+
+{% block contenido %}
+    <p class="titulo-poderes">Lista de todos los poderes estelares</p>
+    <div class="powers-grid">
+        {% for brawler in brawlers %}
+            <!-- Imagen del Brawler -->
+            <div class="brawler-item">
+                <a href="/brawlers/brawler/{{ brawler.nombre }}" class="brawler-link">
+                    <img src="{{ brawler.imagen.url }}" alt="{{ brawler.nombre }}" class="imagen-brawler">
+                </a>
+                <div class="poderes-lista">
+                    {% for poder in brawler.poderes.all %}
+                    <div class="poder-imagen">
+                        <img src="{{ poder.imagen.url }}" alt="{{ poder.nombre }}" class="imagen-poder">
+                        <p class="poder">{{ poder.nombre }}</p>
+                    </div>
+                    {% empty %}
+                        <p>No tiene poderes.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% empty %}
+            <p>No hay brawlers disponibles.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,59 @@
+
+{% extends 'master.html' %}
+{% load static %} 
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/brawlers.css' %}"> <!-- Carga el CSS específico de brawlers -->
+    <link rel="stylesheet" href="{% static 'css/brawler.css' %}"> <!-- Carga el CSS específico de brawlers -->
+    <link rel="stylesheet" href="{% static 'css/comparar.css' %}"> <!-- Carga el CSS específico de brawlers -->
+    <link rel="stylesheet" href="{% static 'css/filtro.css' %}"> <!-- Carga el CSS específico de brawlers -->
+    {% endblock %}
+
+{% block titulo %}
+    <p class="brawler-title">Filtro Avanzado de Brawlers</p>
+{% endblock %}
+
+{% block contenido %}    
+
+<form method="get" class="form-grid">
+    {{ form.non_field_errors }}
+    {% for field in form %}
+        <div class="form-field">
+            {{ field.label_tag }}
+            {{ field }}
+            {{ field.errors }}
+        </div>
+    {% endfor %}
+    <button type="submit" class="submit-button">Filtrar</button>
+</form>
+
+<p>Resultados</p>
+    {% if resultados %}
+    <div class="brawlers-grid">
+        {% for brawler in resultados %}
+            <div class="brawler-container">
+                <a href="/brawlers/brawler/{{ brawler.nombre }}" class="brawler-link">
+
+                    <!-- Imagen del Brawler -->
+                    <div class="brawler-image">
+                        <img src="{{ brawler.imagen.url }}" alt="{{ brawler.nombre }}" class="brawler-image-img">
+                    </div>
+                
+                    <!-- Propiedades del Brawler -->
+                    <div class="brawler-properties">
+                        <p class="nombre">{{ brawler.nombre }}</p>
+                        <p><strong>Clase:</strong> {{ brawler.clase.nombre }}</p>
+                        <p><strong>Rareza:</strong> {{ brawler.rareza.nombre }}</p>
+                        <p><strong>Win Rate:</strong> {{ brawler.winRate }}%</p>
+                        <p><strong>Use Rate:</strong> {{ brawler.useRate }}%</p>
+                        <p><strong>Selecciones Registradas:</strong> {{ brawler.seleccionesRegistradas }}</p>
+                
+                    </div>
+                </a>
+            </div>
+    {% endfor %}
+    </div>
+    {% else %}
+    <p>No se encontraron resultados con los criterios seleccionados.</p>
+    {% endif %}
+{% endblock %}
