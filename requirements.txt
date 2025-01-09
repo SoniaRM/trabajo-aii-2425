@@ -1,0 +1,4 @@
+Django
+whoosh
+beautifulsoup4
+lxml
